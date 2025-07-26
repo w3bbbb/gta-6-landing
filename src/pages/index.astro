@@ -1,16 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro";
+import MagicLogo from "@/assets/magicLogo.webp";
+import Hero from "@/assets/hero.webp";
+import LogoVI from "@/assets/logo-vi.svg"
+import PlayIcon from "@/assets/play-button.svg"
+import LogoCutted from "@/assets/logo-cutted.svg"
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<section class="bg-black h-screen">
-	</section>
-	<section class="bg-red-500 h-screen">
-	</section>
-	<section class="bg-black h-screen">
-	</section>
+  <section>
+    <picture id="hero" class="h-screen scale-125 block overflow-hidden fixed">
+      <img
+        id="hero-magic-logo"
+        src={MagicLogo.src}
+        alt="logo"
+        class="absolute w-full h-full object-cover"
+      />
+      <img
+        id="hero-image"
+        src={Hero.src}
+        alt="hero"
+        class="w-full h-full object-cover"
+      />
+    </picture>
+  </section>
+
+	<div class="fixed flex flex-col items-center justify-between h-screen px-20 py-16 w-full">
+		<header class="flex justify-between w-full">
+			<LogoVI 
+				class="size-11 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"
+			/>
+		</header>
+
+		<button class="absolute cursor-pointer absolute inset-0 inline-block">
+			<PlayIcon 
+				id="hero-play-button" 
+				class="text-white m-auto size-32 mt-10 backdrop-blur rounded-full hover:scale-110 transition-transform duration-500"
+			/>
+		</button>
+
+		<footer id="hero-footer" class="absolute bottom-10 m-auto">
+			<LogoCutted 
+				class="text-white w-45 drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000]" 
+			/>
+			<span class="absolute top-[47px] left-1/2 -translate-x-1/2 font-semibold text-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000] uppercase tracking-[6px] whitespace-nowrap text-center text-2xl">Watch Trailer 2</span>
+		</footer>
+	</div>
 </Layout>
- 
